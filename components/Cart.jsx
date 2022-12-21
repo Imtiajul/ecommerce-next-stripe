@@ -6,7 +6,7 @@ import { TiDeleteOutline } from 'react-icons/ti'
 import { useStateContext } from '../context/StateContext'
 
 import { urlFor } from '../lib/client'
-// import { getStripe } from '../lib/getStripe'
+import getStripe from '../lib/getStripe'
 
 import { AiOutlineLeft, AiOutlineShopping, AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 
@@ -16,14 +16,13 @@ const Cart = () => {
 
   const handleCheckOut = async () => {
     const stripe = await getStripe();
-
     const response = await fetch('/api/stripe', {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(cartItems),
-    })
+    });
 
     if (response.statusCode === 500) return;
 
