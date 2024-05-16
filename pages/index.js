@@ -1,11 +1,9 @@
 import React from 'react'
 
-import Head from 'next/head'
-import Image from 'next/image'
 
 
+import { FooterBanner, HeroBanner, Product } from '../components'
 import { client } from '../lib/client'
-import { HeroBanner, Product, Navbar, FooterBanner } from '../components'
 
 export default function Home({products, bannerData}) {
   return (
@@ -13,7 +11,7 @@ export default function Home({products, bannerData}) {
       <HeroBanner heroBanner = {bannerData.length && bannerData[0]}/> 
 
       <div className="products-heading">
-      <h2>Beset Selling Products</h2>
+      <h2>Best Selling Products</h2>
       <p>Speakers of many variations</p>
       </div>
       <div className="products-container">
